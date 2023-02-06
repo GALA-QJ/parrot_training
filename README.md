@@ -1,2 +1,2 @@
 # parrot_training
-This repository stored all the information about prediction of IDRs using parrot neural network 
+This repository store all the information about prediction of IDRs using parrot neural network 

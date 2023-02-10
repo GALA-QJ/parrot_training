@@ -1,6 +1,5 @@
 # Modulos requeridos
 import os
-import protfasta # Instalar (pip install protfasta)
 import pandas as pd
 from Bio import SeqIO # Instalar (pip install Bio)
 from localcider.sequenceParameters import SequenceParameters # Instalar (pip install localcider)
@@ -8,26 +7,9 @@ from localcider.sequenceParameters import SequenceParameters # Instalar (pip ins
 # Obtener el archivo fasta y dividirlo en archivos individuales por
 # cada secuencia que tenga el archivo (usar Bash de Linux). 
 
-# Antes de iniciar, cambiar el directorio actual de trabajo de
-# Python en donde estarán los archivos fasta
-os.chdir('DATA/DATA FOR PYTHON/FASTA_CIDER/IDRs_99/INDIVIDUAL_99/') #Nuevo dir
-
-# Realizar una limpieza del archivo fasta para eliminar aminoácidos
-# inválidos usando el modulo de "protfasta"
-import protfasta
-
-# Remover los aminácidos inválidos
-temp_fasta = protfasta.read_fasta('DATA/DATA FOR PYTHON/FASTA_CIDER/IDRs_99/IDRs_99p_FASTA.fasta', 
-invalid_sequence_action='remove')
-
-# Guardar archivo fasta limpiado
-protfasta.write_fasta(temp_fasta, 
-'DATA/DATA FOR PYTHON/FASTA_CIDER/IDRs_99/IDRs_99p_FASTAc.fasta', 
-linelength=200)
-
 # Crear una lista con cada uno de los archivos individuales de las 
 # secuencias
-filelist = os.listdir(".")
+filelist = os.listdir("your/path")
 
 # Crear una lista vacía
 list_of_IDRs = []
@@ -81,7 +63,8 @@ index = ['FCR', 'kappa', 'hydropathy', 'charge', 'disorder', 'NCPR']).T
 os.chdir('../') #Retroceder directorios
 
 # Guardar archivo en el directorio de elección
-df_CIDER.to_csv('DATA/DATA FOR PYTHON/FASTA_CIDER/IDRs_99/CIDER_values.txt')
+df_CIDER.to_csv('your/PATH/CIDER_values.txt')
+
 
 
 # PARA OBTENER LOS DATOS DE NCPR POR CADA RESIDUOS DE AMINOÁCIDO
